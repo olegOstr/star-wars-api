@@ -2,8 +2,10 @@
     --color-dark-gray: #10100e;
     --color-white: #fff;
     --color-black: #000;
-
+    --color-yellow: #ffff00;
     --border-radius: 2%;
+
+    --font-size-header: 26px;
 
     --font-family-main: sans-serif;
 }

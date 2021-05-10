@@ -8,7 +8,6 @@ const App = () => {
 
     return (
         <>
-            <h1>Star Wars API</h1>
             <Router>
                 <PeoplePage/>
             </Router>
