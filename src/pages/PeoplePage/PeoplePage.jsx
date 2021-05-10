@@ -4,6 +4,7 @@ import './PeoplePage.module.css';
 import {getApiResource} from '../../service/network';
 import {API_PEOPLE} from '../../constants/api';
 import {getPeopleId, getPeopleImg} from '../../service/getPeopleData';
+import PeopleList from '../../components/PeopleList/PeopleList';
 
 const PeoplePage = () => {
 
@@ -33,12 +34,7 @@ const PeoplePage = () => {
     return (
         <>
             {people && (
-                <ul>
-                    {people.map(({name, img, id}) => <li key={id}>
-                        <img src={img} alt={name}/>
-                        <p>{name}</p>
-                    </li>)}
-                </ul>
+                <PeopleList people={people}/>
             )}
         </>
     );
