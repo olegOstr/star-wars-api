@@ -22,7 +22,7 @@
     --theme-default-header: #cccc46;
     --theme-default-bgimage: url(/src/static/bg.jpg);
 
-    --transition: .4s linear;
+    --transition: .3s ease-in;
 }
 
 html {

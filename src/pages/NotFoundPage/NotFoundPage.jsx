@@ -1,5 +1,5 @@
 import React from 'react';
-import {useLocation} from 'react-router';
+import {useLocation} from 'react-router-dom';
 import img from './404.jpg'
 import styles from './NotFoundPage.module.css';
 

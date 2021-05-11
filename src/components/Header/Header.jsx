@@ -13,7 +13,7 @@ const Header = () => {
                         <NavLink exact to='/'>Home</NavLink>
                     </li>
                     <li className={styles.list__item}>
-                        <NavLink exact to='/people'>People</NavLink>
+                        <NavLink exact to='/people/?page=1'>People</NavLink>
                     </li>
 
                     <li className={styles.list__item}>

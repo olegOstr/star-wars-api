@@ -38,6 +38,11 @@
     transition: var(--transition);
 }
 
+.list__container a:hover {
+    color: var(--color-violet);
+    text-shadow: none;
+}
+
 .list__container :global(a.active) {
     border: 2px solid var(--color-violet);
     color: var(--color-violet);
