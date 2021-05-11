@@ -1,15 +1,30 @@
 import React from 'react';
-import './App.module.css';
+import styles from './App.module.css';
 
-import PeoplePage from '../pages/PeoplePage/PeoplePage';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import routesConfig from '../routes/routesConfig';
+import Header from '../components/Header/Header';
 
 const App = () => {
 
     return (
         <>
             <Router>
-                <PeoplePage/>
+                <div className={styles.wrapper}>
+
+                    <Header/>
+
+                    <Switch>
+                        {routesConfig.map((route, index) => (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                exact={route.exact}
+                                component={route.component}/>
+                        ))}
+                    </Switch>
+
+                </div>
             </Router>
         </>
     );
