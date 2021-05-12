@@ -6,7 +6,6 @@
 .person__name {
     padding: var(--spacing-small);
     border-radius: var(--border-radius) var(--border-radius) var(--border-radius) 0;
-
     color: var(--color-white);
     background-color: var(--color-name);
 

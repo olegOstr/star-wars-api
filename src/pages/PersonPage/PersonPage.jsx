@@ -7,6 +7,7 @@ import PersonInfo from '../../components/PersonPage/PersonInfo/PersonInfo';
 import PersonPhoto from '../../components/PersonPage/PersonPhoto/PersonPhoto';
 import PropTypes from 'prop-types';
 import styles from './PersonPage.module.css'
+import PersonLinkBack from '../../components/PersonPage/PersonLinkBack/PersonLinkBack';
 
 const PersonPage = ({setErrorApi, match}) => {
 
@@ -15,7 +16,6 @@ const PersonPage = ({setErrorApi, match}) => {
     const [personPhoto, setPersonPhoto] = useState(null)
 
     useEffect(() => {
-
         (async () => {
 
             const id = match.params.id
@@ -36,12 +36,16 @@ const PersonPage = ({setErrorApi, match}) => {
 
             setPersonName(res.name);
             setPersonPhoto(getPeopleImg(id))
-        })();
 
+        })();
+        
     }, [setErrorApi, match]);
 
     return (
         <div className={styles.wrapper}>
+
+            <PersonLinkBack/>
+
             <span className={styles.person__name}>{personName}</span>
 
             <div className={styles.person__container}>
