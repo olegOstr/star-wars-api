@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {withErrorApi} from '../../hoc-helpers/withErrorApi';
-import PeopleList from '../../components/PeopleList/PeopleList';
+import PeopleList from '../../components/PeoplePage/PeopleList/PeopleList';
 import {getApiResource, changeHTTP} from '../../service/network';
 import {getPeopleId, getPeopleImg, getPeoplePageId} from '../../service/getPeopleData';
 import {API_PEOPLE} from '../../constants/api';
 import {useQueryParams} from '../../hooks/useQueryParams';
-import PeopleNavigation from '../../components/PeopleNavigation/PeopleNavigation';
-import './PeoplePage.module.css';
+import PeopleNavigation from '../../components/PeoplePage/PeopleNavigation/PeopleNavigation';
+import styles from './PeoplePage.module.css';
 
 const PeoplePage = ({setErrorApi}) => {
 
@@ -47,10 +47,10 @@ const PeoplePage = ({setErrorApi}) => {
 
     useEffect(() => {
         getResource(API_PEOPLE + queryPage)
-    }, [setErrorApi]);
+    }, [setErrorApi, queryPage]);
 
     return (
-        <>
+        <div className={styles.container}>
             <PeopleNavigation
                 getResource={getResource}
                 prevPage={prevPage}
@@ -58,7 +58,7 @@ const PeoplePage = ({setErrorApi}) => {
                 counterPage={counterPage}
             />
             {people && <PeopleList people={people}/>}
-        </>
+        </div>
     );
 };
 

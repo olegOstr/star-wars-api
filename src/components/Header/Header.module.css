@@ -5,6 +5,26 @@
     padding: 0;
 }
 
+.header__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+}
+
+.header__logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: all .4s ease-out;
+}
+
+.header__logo img:hover {
+    filter: hue-rotate(110deg) drop-shadow(16px 16px 20px blue);
+}
+
 .nav {
     display: flex;
     justify-content: space-between;

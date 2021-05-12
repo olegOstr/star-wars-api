@@ -1,0 +1,12 @@
+.photo__wrapper {
+    width: 250px;
+    height: 350px;
+}
+
+.photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--border-radius-medium);
+}
