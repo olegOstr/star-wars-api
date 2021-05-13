@@ -17,6 +17,8 @@
 .person__container {
     display: flex;
     flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 20px;
     border-left: 5px solid var(--color-name);
     border-radius: 0 var(--border-radius);
     padding: var(--spacing-medium);

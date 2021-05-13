@@ -3,7 +3,7 @@
     height: 100%;
     min-height: 344px;
     padding: var(--spacing-medium);
-    margin-left: var(--spacing-large);
+    /*margin-left: var(--spacing-large);*/
     background-color: rgba(0, 0, 0, .85);
     border-radius: var(--border-radius-medium);
     color: var(--color-white);

@@ -27,3 +27,10 @@ export const getApiResource = async (url) => {
         return false
     }
 }
+
+export const makeConCurrentRequest = async (url) => {
+    return await Promise.all(url.map(res => {
+        return fetch(res)
+        .then(res => res.json())
+    }))
+}

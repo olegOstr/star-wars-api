@@ -1,0 +1,31 @@
+.films__wrapper {
+    padding: var(--spacing-medium);
+}
+
+.films__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.films__item {
+    padding: var(--spacing-ultrasmall);
+    margin-bottom: var(--spacing-ultrasmall);
+}
+
+.films__episode {
+    padding: var(--spacing-ultrasmall);
+    border-radius: var(--border-radius);
+    background-color: darkred;
+}
+
+.films__field {
+    text-decoration: underline;
+    text-shadow: var(--text-shadow-yellow);
+}
+
+@media screen and (max-width: 884px) {
+    .films__wrapper {
+        /*margin: var(--spacing-medium) 0 0 0;*/
+    }
+}

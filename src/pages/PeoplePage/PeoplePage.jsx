@@ -8,6 +8,7 @@ import {API_PEOPLE} from '../../constants/api';
 import {useQueryParams} from '../../hooks/useQueryParams';
 import PeopleNavigation from '../../components/PeoplePage/PeopleNavigation/PeopleNavigation';
 import styles from './PeoplePage.module.css';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 const PeoplePage = ({setErrorApi}) => {
 
@@ -17,8 +18,11 @@ const PeoplePage = ({setErrorApi}) => {
     const [prevPage, setPrevPage] = useState(null)
     const [nextPage, setNextPage] = useState(null)
     const [counterPage, setCounterPage] = useState(1)
+    const [isLoad, setIsLoad] = useState(false)
+
 
     const getResource = async (url) => {
+        setIsLoad(true)
         const res = await getApiResource(url)
 
         if (res) {
@@ -39,14 +43,16 @@ const PeoplePage = ({setErrorApi}) => {
             setNextPage(changeHTTP(res.next))
             setCounterPage(getPeoplePageId(url))
             setErrorApi(false)
-
+            setIsLoad(false)
         } else {
             setErrorApi(true)
         }
     };
 
     useEffect(() => {
+
         getResource(API_PEOPLE + queryPage)
+
     }, [setErrorApi, queryPage]);
 
     return (
@@ -57,7 +63,7 @@ const PeoplePage = ({setErrorApi}) => {
                 nextPage={nextPage}
                 counterPage={counterPage}
             />
-            {people && <PeopleList people={people}/>}
+            {isLoad ? <Spinner/> : people && <PeopleList people={people}/>}
         </div>
     );
 };

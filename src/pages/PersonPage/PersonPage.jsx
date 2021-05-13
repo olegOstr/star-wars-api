@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, Suspense} from 'react';
 import {getApiResource} from '../../service/network';
 import {API_PERSON} from '../../constants/api';
 import {withErrorApi} from '../../hoc-helpers/withErrorApi';
@@ -8,16 +8,20 @@ import PersonPhoto from '../../components/PersonPage/PersonPhoto/PersonPhoto';
 import PropTypes from 'prop-types';
 import styles from './PersonPage.module.css'
 import PersonLinkBack from '../../components/PersonPage/PersonLinkBack/PersonLinkBack';
+import Spinner from '../../components/UI/Spinner/Spinner';
+// import PersonFilms from '../../components/PersonPage/PersonFilms/PersonFilms';
+
+const PersonFilms = React.lazy(() => import('../../components/PersonPage/PersonFilms/PersonFilms'));
 
 const PersonPage = ({setErrorApi, match}) => {
 
     const [personInfo, setPersonInfo] = useState(null)
     const [personName, setPersonName] = useState(null)
     const [personPhoto, setPersonPhoto] = useState(null)
+    const [personFilms, setPersonFilms] = useState(null)
 
     useEffect(() => {
         (async () => {
-
             const id = match.params.id
             const res = await getApiResource(`${API_PERSON}/${id}/`);
 
@@ -34,12 +38,14 @@ const PersonPage = ({setErrorApi, match}) => {
                 {title: 'Gender', data: res.gender},
             ])
 
+            res.films.length && setPersonFilms(res.films)
             setPersonName(res.name);
             setPersonPhoto(getPeopleImg(id))
 
         })();
-        
+
     }, [setErrorApi, match]);
+
 
     return (
         <div className={styles.wrapper}>
@@ -51,6 +57,11 @@ const PersonPage = ({setErrorApi, match}) => {
             <div className={styles.person__container}>
                 <PersonPhoto personPhoto={personPhoto} alt={personName}/>
                 {personInfo && <PersonInfo personInfo={personInfo}/>}
+                {personFilms && (
+                    <Suspense fallback={<Spinner/>}>
+                        <PersonFilms personFilms={personFilms}/>
+                    </Suspense>
+                )}
             </div>
         </div>
     );
