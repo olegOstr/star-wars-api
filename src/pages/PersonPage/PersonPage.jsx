@@ -8,7 +8,7 @@ import PersonPhoto from '../../components/PersonPage/PersonPhoto/PersonPhoto';
 import PropTypes from 'prop-types';
 import styles from './PersonPage.module.css'
 import PersonLinkBack from '../../components/PersonPage/PersonLinkBack/PersonLinkBack';
-import Spinner from '../../components/UI/Spinner/Spinner';
+import UiLoading from '../../components/UI/UiLoading/UiLoading';
 // import PersonFilms from '../../components/PersonPage/PersonFilms/PersonFilms';
 
 const PersonFilms = React.lazy(() => import('../../components/PersonPage/PersonFilms/PersonFilms'));
@@ -58,7 +58,7 @@ const PersonPage = ({setErrorApi, match}) => {
                 <PersonPhoto personPhoto={personPhoto} alt={personName}/>
                 {personInfo && <PersonInfo personInfo={personInfo}/>}
                 {personFilms && (
-                    <Suspense fallback={<Spinner/>}>
+                    <Suspense fallback={<UiLoading theme='blue'/>}>
                         <PersonFilms personFilms={personFilms}/>
                     </Suspense>
                 )}

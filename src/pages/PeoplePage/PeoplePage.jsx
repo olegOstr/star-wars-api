@@ -8,7 +8,7 @@ import {API_PEOPLE} from '../../constants/api';
 import {useQueryParams} from '../../hooks/useQueryParams';
 import PeopleNavigation from '../../components/PeoplePage/PeopleNavigation/PeopleNavigation';
 import styles from './PeoplePage.module.css';
-import Spinner from '../../components/UI/Spinner/Spinner';
+import UiLoading from '../../components/UI/UiLoading/UiLoading';
 
 const PeoplePage = ({setErrorApi}) => {
 
@@ -63,7 +63,7 @@ const PeoplePage = ({setErrorApi}) => {
                 nextPage={nextPage}
                 counterPage={counterPage}
             />
-            {isLoad ? <Spinner/> : people && <PeopleList people={people}/>}
+            {isLoad ? <UiLoading theme='white'/> : people && <PeopleList people={people}/>}
         </div>
     );
 };

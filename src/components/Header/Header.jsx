@@ -9,7 +9,7 @@ const Header = () => {
             <nav className={styles.nav}>
 
                 <NavLink exact to='/'>
-                    <div className={styles.header__logo}><img src={Logo} alt=""/></div>
+                    <div className={styles.header__logo}><img src={Logo} alt="Logo"/></div>
                 </NavLink>
 
 
