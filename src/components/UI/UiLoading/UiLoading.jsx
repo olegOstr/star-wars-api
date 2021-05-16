@@ -22,7 +22,7 @@ const UiLoading = ({theme = 'white'}) => {
             default:
                 break
         }
-    }, [])
+    }, [theme])
 
     return (
         <div className={styles.loader__wrapper}>

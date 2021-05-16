@@ -22,6 +22,10 @@ const Header = () => {
                     </li>
 
                     <li className={styles.list__item}>
+                        <NavLink exact to='/favorites'>Favorite</NavLink>
+                    </li>
+
+                    <li className={styles.list__item}>
                         <NavLink exact to='/not-found'>Not Found</NavLink>
                     </li>
                 </ul>

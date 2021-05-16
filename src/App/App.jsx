@@ -4,11 +4,13 @@ import styles from './App.module.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import routesConfig from '../routes/routesConfig';
 import Header from '../components/Header/Header';
+import {Provider} from 'react-redux';
+import store from '../store/store';
 
 const App = () => {
 
     return (
-        <>
+        <Provider store={store}>
             <Router>
                 <div className={styles.wrapper}>
 
@@ -26,7 +28,7 @@ const App = () => {
 
                 </div>
             </Router>
-        </>
+        </Provider>
     );
 }
 

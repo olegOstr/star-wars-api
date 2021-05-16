@@ -15,7 +15,7 @@ const PeopleList = ({people}) => {
         setTimeout(() => {
             people && setIsLoad(false)
         }, 200)
-    }, [])
+    }, [people])
 
 
     return (

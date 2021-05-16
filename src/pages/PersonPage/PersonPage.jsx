@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import styles from './PersonPage.module.css'
 import PersonLinkBack from '../../components/PersonPage/PersonLinkBack/PersonLinkBack';
 import UiLoading from '../../components/UI/UiLoading/UiLoading';
-// import PersonFilms from '../../components/PersonPage/PersonFilms/PersonFilms';
+import {useSelector} from 'react-redux';
 
 const PersonFilms = React.lazy(() => import('../../components/PersonPage/PersonFilms/PersonFilms'));
 
@@ -19,11 +19,19 @@ const PersonPage = ({setErrorApi, match}) => {
     const [personName, setPersonName] = useState(null)
     const [personPhoto, setPersonPhoto] = useState(null)
     const [personFilms, setPersonFilms] = useState(null)
+    const [personId, setPersonId] = useState(null)
+    const [personFavorite, setPersonFavorite] = useState(false)
+
+    const storeData = useSelector(state => state.favoriteReducer)
 
     useEffect(() => {
         (async () => {
             const id = match.params.id
             const res = await getApiResource(`${API_PERSON}/${id}/`);
+
+            storeData[id] ? setPersonFavorite(true) : setPersonFavorite(false)
+
+            setPersonId(id)
 
             setErrorApi(!res)
 
@@ -44,7 +52,7 @@ const PersonPage = ({setErrorApi, match}) => {
 
         })();
 
-    }, [setErrorApi, match]);
+    }, [setErrorApi, match, storeData]);
 
 
     return (
@@ -55,7 +63,11 @@ const PersonPage = ({setErrorApi, match}) => {
             <span className={styles.person__name}>{personName}</span>
 
             <div className={styles.person__container}>
-                <PersonPhoto personPhoto={personPhoto} alt={personName}/>
+                <PersonPhoto personFavorite={personFavorite}
+                             setPersonFavorite={setPersonFavorite}
+                             personId={personId}
+                             personPhoto={personPhoto}
+                             personName={personName}/>
                 {personInfo && <PersonInfo personInfo={personInfo}/>}
                 {personFilms && (
                     <Suspense fallback={<UiLoading theme='blue'/>}>

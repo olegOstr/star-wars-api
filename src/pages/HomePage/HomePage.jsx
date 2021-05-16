@@ -1,5 +1,4 @@
 import React from 'react';
-import UiLoading from '../../components/UI/UiLoading/UiLoading';
 
 const HomePage = () => {
     return (
