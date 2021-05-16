@@ -2,6 +2,7 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import Logo from './star-wars-4.svg'
 import styles from './Header.module.css';
+import Favorite from '../Favorite/Favorite';
 
 const Header = () => {
     return (
@@ -20,17 +21,12 @@ const Header = () => {
                     <li className={styles.list__item}>
                         <NavLink to='/people/?page=1'>People</NavLink>
                     </li>
-
-                    <li className={styles.list__item}>
-                        <NavLink exact to='/favorites'>Favorite</NavLink>
-                    </li>
-
                     <li className={styles.list__item}>
                         <NavLink exact to='/not-found'>Not Found</NavLink>
                     </li>
                 </ul>
 
-                <div className='header__text'>Bookmarks</div>
+                <Favorite/>
             </nav>
         </header>
     );

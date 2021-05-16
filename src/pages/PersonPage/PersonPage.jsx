@@ -25,6 +25,7 @@ const PersonPage = ({setErrorApi, match}) => {
     const storeData = useSelector(state => state.favoriteReducer)
 
     useEffect(() => {
+
         (async () => {
             const id = match.params.id
             const res = await getApiResource(`${API_PERSON}/${id}/`);
@@ -49,7 +50,6 @@ const PersonPage = ({setErrorApi, match}) => {
             res.films.length && setPersonFilms(res.films)
             setPersonName(res.name);
             setPersonPhoto(getPeopleImg(id))
-
         })();
 
     }, [setErrorApi, match, storeData]);
