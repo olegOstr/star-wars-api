@@ -57,6 +57,7 @@ const PeoplePage = ({setErrorApi}) => {
 
     return (
         <div className={styles.container}>
+            <h3 className='header__text'>People Page</h3>
             <PeopleNavigation
                 getResource={getResource}
                 prevPage={prevPage}
