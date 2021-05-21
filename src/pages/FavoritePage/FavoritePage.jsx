@@ -8,7 +8,6 @@ const FavoritePage = () => {
 
     const storeData = useSelector(state => state.favoriteReducer)
 
-
     useEffect(() => {
         const arr = Object.entries(storeData)
 

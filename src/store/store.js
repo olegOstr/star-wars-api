@@ -1,13 +1,18 @@
 import {createStore} from 'redux';
-import rootReducer from './reducers/reducers';
+import rootReducer from './reducers/index';
 import {setLocalStorage} from '../service/localStorage';
 
 const store = createStore(rootReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 store.subscribe(() => {
-    setLocalStorage('store', store.getState().favoriteReducer)
+    setLocalStorage('favorite', store.getState().favoriteReducer)
 
 });
+
+store.subscribe(() => {
+    setLocalStorage('theme', store.getState().themeReducer)
+});
+
 
 export default store;

@@ -1,10 +1,8 @@
 import {ADD_PERSON_TO_FAVORITE, REMOVE_PERSON_TO_FAVORITE} from '../actions/actions';
-import {combineReducers} from 'redux';
 import {omit} from 'lodash';
 import {getLocalStorage} from '../../service/localStorage';
 
-
-const initialState = getLocalStorage('store');
+const initialState = getLocalStorage('favorite');
 
 const favoriteReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -24,4 +22,4 @@ const favoriteReducer = (state = initialState, action) => {
     }
 }
 
-export default combineReducers({favoriteReducer});
+export default favoriteReducer;
