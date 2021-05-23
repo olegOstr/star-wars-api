@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 import PeopleList from '../../components/PeoplePage/PeopleList/PeopleList';
+import {motion} from 'framer-motion'
 
 const FavoritePage = () => {
 
@@ -26,10 +27,15 @@ const FavoritePage = () => {
     }, [storeData])
 
     return (
-        <div>
+
+        <motion.div initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    transition={{duration: 0.7, delay: .2}}
+        >
             <h3 className='header__text'>Favorite Page</h3>
             {person.length ? <PeopleList people={person}/> : <h2>No Favorite Person</h2>}
-        </div>
+        </motion.div>
+
     );
 };
 
