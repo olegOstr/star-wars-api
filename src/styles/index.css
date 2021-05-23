@@ -24,7 +24,20 @@
     --text-shadow-yellow: 0 0 2px var(--color-white), 0 0 40px var(--color-yellow);
     --text-shadow-blue: 0 0 2px var(--color-white), 0 0 40px var(--color-blue);
 
-    --theme-default-header: #cccc46;
+
+    /* THEMES TITLE */
+    --theme-light-header: #dfe2df;
+    --theme-dark-header: #ca6c6f;
+    --theme-falcon-header: #cccc46;
+
+    --theme-default-header: var(--theme-light-header);
+
+
+    /* THEMES background */
+    --theme-light-bgimage: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(166, 94, 108, 1) 100%);
+    --theme-dark-bgimage: url(/src/static/bg.jpg);
+    --theme-falcon-bgimage: linear-gradient(90deg, rgba(85, 52, 107, 1) 0%, rgba(78, 49, 49, 1) 50%, rgba(98, 65, 19, 1) 100%);
+
     --theme-default-bgimage: url(/src/static/bg.jpg);
 
     --transition: .3s ease-in;

@@ -29,13 +29,13 @@ const ChooseSide = () => {
             <h1 className='header__text'>Choose Your Side</h1>
 
             <div className={styles.chose__wrapper}>
-                <button className={styles.chose__item} onClick={handlerThemeLight}>
+                <button className={styles.chose__item} onClick={handlerThemeLight}>Choose
                     <img className={styles.chose__item__img} src={LightSide} alt=""/>
                 </button>
-                <button className={styles.chose__item} onClick={handlerThemeDark}>
+                <button className={styles.chose__item} onClick={handlerThemeDark}>Choose
                     <img className={styles.chose__item__img} src={DarkSide} alt=""/>
                 </button>
-                <button className={styles.chose__item} onClick={handlerThemeFalcon}>
+                <button className={styles.chose__item} onClick={handlerThemeFalcon}>Choose
                     <img className={styles.chose__item__img} src={FalconSide} alt=""/>
                 </button>
             </div>

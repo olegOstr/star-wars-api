@@ -7,6 +7,7 @@ import {useSelector} from 'react-redux';
 import logoDroid from './img/droid.svg'
 import logoLightSaber from './img/lightsaber.svg'
 import logoSpaceStation from './img/space-station.svg'
+import {changeCssVar} from '../../service/changeCssVar';
 
 
 const Header = () => {
@@ -16,6 +17,8 @@ const Header = () => {
     const {theme} = useSelector((state) => state.themeReducer)
 
     useEffect(() => {
+        changeCssVar(theme)
+
         switch (theme) {
             case 'light':
                 return setIcon(logoLightSaber)
@@ -29,6 +32,7 @@ const Header = () => {
             default:
                 break
         }
+
     }, [theme])
 
     return (
