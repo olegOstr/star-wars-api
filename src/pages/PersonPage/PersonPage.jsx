@@ -47,7 +47,7 @@ const PersonPage = ({setErrorApi, match}) => {
                 {title: 'Gender', data: res.gender},
             ])
 
-            res.films.length && setPersonFilms(res.films)
+            res.films?.length && setPersonFilms(res.films)
             setPersonName(res.name);
             setPersonPhoto(getPeopleImg(id))
         })();
